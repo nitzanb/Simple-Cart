@@ -1,0 +1,24 @@
+Simple Cart plugin for WordPress
+===========================
+
+This simple plugin will add a cart functionality to a wordpress installation.
+There are few "e-commerce" plugins out there but they are large and bloat,
+I've needed something light and simple.
+
+Creating products
+-----------------
+Each product is actually a post, I'm using a custom field called 'item_price'
+in order to set the item price. Either than that - all data comes from the 
+post data.
+
+
+=== RELEASE NOTES ===
+2011-03-28 - v1.0 - first version
+
+simple_cart.php - 	The main plugin file
+
+cart.php - 	The class that manage the cart functionality
+item.php - 	This is the Item class, which is more of a "bridge" to get 
+			needed post data without new queries
+
+======================

@@ -6,33 +6,42 @@
  *      
  * 
  */
+
+//These settings really should be moved to option screen
 define('VAT',0.16); 
 define('CURENCY','$'); 
  
-require_once('item.php');
+
 
 class Cart{
 	
-	var $sum;
-	var $lines; // Order Lines
-	var $items; //	Item count
+	//Total cart cost
+	var $sum; 
+	//Order Lines - Counts the lines in the cart
+	var $lines; 
+	//Item count - Counts single items in the cart
+	var $items; 
+	//The cart lines themselves
 	var $item_array;
+	//The vat calculation
 	var $vat;
 	
 	
 	function __construct() 
-	{
-		//parent::__construct();
+	{		
 		$this->sum = 0;
 		$this->vat = 0;
 		$this->lines = 0;
 		$this->items = 0;
-		$this->item_array = array();
-		
+		$this->item_array = array();		
 	}
 	
+	
+	/*	The function gets an item id (which is a post id) and 
+	 * 	the amounts of items and adds it to the cart
+	 */ 
 	function add_item($item_id, $count)
-	{
+	{		
 		if (isset($this->item_array["$item_id"])):
 			$this->update_item($item_id, $count);
 		else:
