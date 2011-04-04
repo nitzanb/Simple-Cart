@@ -37,7 +37,8 @@ class Cart{
 	}
 	
 	
-	/*	The function gets an item id (which is a post id) and 
+	/*
+	 * 	The function gets an item id (which is a post id) and 
 	 * 	the amounts of items and adds it to the cart
 	 */ 
 	function add_item($item_id, $count)
@@ -93,6 +94,7 @@ class Cart{
 	public function __toString()
 	{
 		$str = '<div id="cart_sum"><ul id="item_list">';	
+		$str .=	"<li class='line thead'><ul class='line_items'><li>Item Id</li><li>Item Name</li><li>Amount</li><li>Price</li></ul></li>\r\n";		
 		foreach($this->item_array as $id=>$amount):
 			$i = new Item($id);
 			$str .=	"<li class='line'><ul class='line_items'><li> $id</li><li>".$i->title."</li><li>$amount</li><li>".$amount * $i->price."</li></ul></li>\r\n";		
@@ -101,7 +103,7 @@ class Cart{
 		$str .= "<li class='cart_sum'>Sum: ".$this->sum. CURENCY ."</li>";
 		$str .= "<li class='cart_vat'>Vat: ".$this->vat.CURENCY."</li>";
 		$str .= "<li class='cart_total'><span class='caption'>Total:</span>".($this->vat + $this->sum).CURENCY."</li>";
-		$str.="</ul>";
+		$str.="</ul></div>";
 		return $str;	
 	}
 }
